@@ -202,12 +202,16 @@ void clear(Node*& root) {
 //     3                           masih punya satu cabang)
 // =============================================================================
 int jumlahDaun(const Node* root) {
-    if(root == nullptr){
+    if (root == NULL) {
         return 0;
     }
-    return 1+ jumlahDaun (root->left) + jumlahDaun(root->right);
+    
+    if (root->left == NULL && root->right == NULL) {
+        return 1;
+    }
+    
+    return jumlahDaun(root->left) + jumlahDaun(root->right);
 }
-
 // =============================================================================
 // MAIN() — program Anda sendiri. TIDAK dinilai, bebas diubah.
 // =============================================================================
